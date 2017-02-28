@@ -137,10 +137,11 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 //This method runs everytime the decrypt button is clicked
                 public void onClick(View v) {
-
-
-
+                    //Log statement to assure us that we have gotten here
                     Log.d("Ran","Decrypting");
+
+                    //Now prompt the user for the key to use for decrypting the message
+                    startActivity(new Intent(MainActivity.this,DecryptionPopup.class));
 
                 }
 
