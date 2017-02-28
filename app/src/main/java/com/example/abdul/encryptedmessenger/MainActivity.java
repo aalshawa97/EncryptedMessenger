@@ -102,18 +102,23 @@ public class MainActivity extends AppCompatActivity {
             }
     });
 
-
         //Trying to see if I can detect button clicks on the decrypt button
-        /*
         DecryptButton = (Button)findViewById(R.id.button_decrypt);
-        DecryptButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                context = getApplicationContext();
-                decryptToast = Toast.makeText(context,"Now decrypting",Toast.LENGTH_SHORT);
-            }
-        });
-        */
+
+        if(DecryptButton != null)
+        {
+            DecryptButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+
+                    context = getApplicationContext();
+                    decryptToast = Toast.makeText(context, "Now decrypting", Toast.LENGTH_SHORT);
+                }
+
+
+            });
+        }
 
         //Check if not sign-in then navigate Signin page
         if(FirebaseAuth.getInstance().getCurrentUser() == null)
