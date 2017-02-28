@@ -28,9 +28,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <!--this line of code goes in the Button block of code when ready to implement onclick listener for the decrypt button-->
+    <!--android:onClick="decryptMessage"-->
+
     <Button
         android:text="Decrypt"
-        android:onClick="decryptMessage"
+
         android:id="@+id/button_decrypt"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"

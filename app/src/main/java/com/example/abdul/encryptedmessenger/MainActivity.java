@@ -1,5 +1,6 @@
 package com.example.abdul.encryptedmessenger;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -16,6 +17,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.support.v7.app.ActionBarActivity;
+import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.database.FirebaseListAdapter;
@@ -33,11 +35,10 @@ public class MainActivity extends AppCompatActivity {
     RelativeLayout activity_main;
     FloatingActionButton fab;
     Button DecryptButton;
+    Toast decryptToast;
+    Context context;
 
-    public void decryptMessage(View view)
-    {
 
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -99,7 +100,20 @@ public class MainActivity extends AppCompatActivity {
                 FirebaseDatabase.getInstance().getReference().push().setValue(new ChatMessage(input.getText().toString(),FirebaseAuth.getInstance().getCurrentUser().getEmail()));
                 input.setText("");
             }
+    });
+
+
+        //Trying to see if I can detect button clicks on the decrypt button
+        /*
+        DecryptButton = (Button)findViewById(R.id.button_decrypt);
+        DecryptButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context = getApplicationContext();
+                decryptToast = Toast.makeText(context,"Now decrypting",Toast.LENGTH_SHORT);
+            }
         });
+        */
 
         //Check if not sign-in then navigate Signin page
         if(FirebaseAuth.getInstance().getCurrentUser() == null)
