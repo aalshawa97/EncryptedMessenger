@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.support.v7.app.ActionBarActivity;
 
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.database.FirebaseListAdapter;
@@ -31,6 +32,12 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseListAdapter<ChatMessage> adapter;
     RelativeLayout activity_main;
     FloatingActionButton fab;
+    Button DecryptButton;
+
+    public void decryptMessage(View view)
+    {
+
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
