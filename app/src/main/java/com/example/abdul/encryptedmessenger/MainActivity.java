@@ -8,6 +8,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -53,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+
+
         return true;
     }
 
@@ -88,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -102,24 +107,6 @@ public class MainActivity extends AppCompatActivity {
             }
     });
 
-        //Trying to see if I can detect button clicks on the decrypt button
-        DecryptButton = (Button)findViewById(R.id.button_decrypt);
-
-        if(DecryptButton != null)
-        {
-            DecryptButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-
-                    context = getApplicationContext();
-                    decryptToast = Toast.makeText(context, "Now decrypting", Toast.LENGTH_SHORT);
-                }
-
-
-            });
-        }
-
         //Check if not sign-in then navigate Signin page
         if(FirebaseAuth.getInstance().getCurrentUser() == null)
         {
@@ -133,6 +120,33 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+
+
+
+    }
+
+    public void decryptMessage(View view)
+    {
+
+        //Trying to see if I can detect button clicks on the decrypt button
+        DecryptButton = (Button)view;
+
+        if(DecryptButton != null)
+        {
+            DecryptButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                //This method runs everytime the decrypt button is clicked
+                public void onClick(View v) {
+
+
+
+                    Log.d("Ran","Decrypting");
+
+                }
+
+
+            });
+        }
     }
 
     private void displayChatMessage()
@@ -167,9 +181,13 @@ public class MainActivity extends AppCompatActivity {
                 messageText.setText(tempMessageText);
                 messageUser.setText(model.getMessageUser());
                 messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)",model.getMessageTime()));
+
+
             }
         };
 
         listOfMessage.setAdapter(adapter);
     }
+
+
 }
