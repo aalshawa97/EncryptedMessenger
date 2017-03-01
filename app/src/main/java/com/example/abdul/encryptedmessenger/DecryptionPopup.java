@@ -38,6 +38,7 @@ public class DecryptionPopup extends Activity
 
         public void getKey(View view)
         {
+            /*
             //Comment this code all out if it is causing errors
 
             //Trying to see if I can detect button clicks on the submit button
@@ -55,7 +56,7 @@ public class DecryptionPopup extends Activity
                         String value = decryptionEditText.getText().toString();
 
 
-                        //Log.d("Test: ", value);
+                        Log.d("Test: ", value);
 
                     }
 
@@ -64,7 +65,7 @@ public class DecryptionPopup extends Activity
 
             }
 
-
+            */
         }
 
 
