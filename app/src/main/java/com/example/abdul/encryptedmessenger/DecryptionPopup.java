@@ -66,26 +66,10 @@ public class DecryptionPopup extends Activity
                         Log.d("Test: ", valueKey);
 
 
-                        /*
                         //Now decrypt the message for the user
-                        TextView message = (TextView)findViewById(R.id.message_text);
+                        MainActivity mainActivity = new MainActivity();
+                        //mainActivity.displayDecryptedChatMessage(valueKey);
 
-                        StringBuilder decryptedMessage = new StringBuilder(message.toString());
-                        int ascii = 0;
-
-                        for (int i = 0; i<decryptedMessage.length(); i++)
-                        {
-
-                            decryptedMessage.setCharAt(i,toLowerCase(decryptedMessage.charAt(i)));
-
-                            ascii = ((((int)decryptedMessage.charAt(i) - 97 - valueKey.charAt(0) + 26) %26) + 97);
-                            decryptedMessage.setCharAt(i,(char)ascii);
-
-
-                        }
-
-                        message.setText(decryptedMessage);
-                        */
 
                     }
 
@@ -96,6 +80,5 @@ public class DecryptionPopup extends Activity
 
 
         }
-
 
     }

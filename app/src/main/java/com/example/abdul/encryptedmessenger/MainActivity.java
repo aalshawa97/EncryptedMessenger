@@ -28,6 +28,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
+import static java.lang.Character.toLowerCase;
 import static java.lang.Character.toUpperCase;
 
 public class MainActivity extends AppCompatActivity {
@@ -193,4 +194,50 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void displayDecryptedChatMessage(final String valueKey)
+    {
+        ListView listOfMessage = (ListView)findViewById(R.id.list_of_message);
+        adapter = new FirebaseListAdapter<ChatMessage>(this,ChatMessage.class,R.layout.list_item,FirebaseDatabase.getInstance().getReference()) {
+            @Override
+            protected void populateView(View v, ChatMessage model, int position) {
+                //Get references to the views of list_item.xml
+                TextView messageText,messageUser,messageTime;
+                messageText = (TextView) v.findViewById(R.id.message_text);
+                messageUser = (TextView) v.findViewById(R.id.message_user);
+                messageTime = (TextView) v.findViewById(R.id.message_time);
+
+
+                //Decrypt messages
+
+                        TextView message = (TextView)findViewById(R.id.message_text);
+
+                        StringBuilder decryptedMessage = new StringBuilder(message.toString());
+                        int ascii = 0;
+
+                        for (int i = 0; i<decryptedMessage.length(); i++)
+                        {
+
+                            decryptedMessage.setCharAt(i,toLowerCase(decryptedMessage.charAt(i)));
+
+                            ascii = ((((int)decryptedMessage.charAt(i) - 97 - valueKey.charAt(0) + 26) %26) + 97);
+                            decryptedMessage.setCharAt(i,(char)ascii);
+
+
+                        }
+
+                        message.setText(decryptedMessage);
+
+                messageUser.setText(model.getMessageUser());
+                messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)",model.getMessageTime()));
+
+
+            }
+        };
+
+        listOfMessage.setAdapter(adapter);
+    }
+
+
 }
+
+
