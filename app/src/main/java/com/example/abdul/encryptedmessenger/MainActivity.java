@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void decryptMessage(View view)
+    public void decryptMessage(final View view)
     {
 
         //Trying to see if I can detect button clicks on the decrypt button
@@ -141,7 +141,9 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("Ran","Decrypting");
 
                     //Now prompt the user for the key to use for decrypting the message
+                    DecryptionPopup decryptionPopup = new DecryptionPopup();
                     startActivity(new Intent(MainActivity.this,DecryptionPopup.class));
+                    decryptionPopup.getKey( view);
 
                 }
 
