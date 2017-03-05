@@ -8,6 +8,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import static java.lang.Character.toLowerCase;
+import static java.lang.Character.toUpperCase;
 
 /**
  * Created by abdul on 2/28/2017.
@@ -56,10 +60,32 @@ public class DecryptionPopup extends Activity
 
 
                         EditText decryptionEditText = (EditText)findViewById(R.id.editText_inputKey);
-                        String value = decryptionEditText.getText().toString();
+                        String valueKey = decryptionEditText.getText().toString();
 
 
-                        Log.d("Test: ", value);
+                        Log.d("Test: ", valueKey);
+
+
+                        /*
+                        //Now decrypt the message for the user
+                        TextView message = (TextView)findViewById(R.id.message_text);
+
+                        StringBuilder decryptedMessage = new StringBuilder(message.toString());
+                        int ascii = 0;
+
+                        for (int i = 0; i<decryptedMessage.length(); i++)
+                        {
+
+                            decryptedMessage.setCharAt(i,toLowerCase(decryptedMessage.charAt(i)));
+
+                            ascii = ((((int)decryptedMessage.charAt(i) - 97 - valueKey.charAt(0) + 26) %26) + 97);
+                            decryptedMessage.setCharAt(i,(char)ascii);
+
+
+                        }
+
+                        message.setText(decryptedMessage);
+                        */
 
                     }
 
