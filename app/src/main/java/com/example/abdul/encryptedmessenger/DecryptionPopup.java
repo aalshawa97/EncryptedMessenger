@@ -34,19 +34,19 @@ public class DecryptionPopup extends Activity
         int key = 0;
         Button SubmitButton;
 
-        //When the submit button is pressed
+        //When the submit button is pressed for getting the decryption key from the user
 
         public void getKey(View view)
         {
+
             //Comment this code all out if it is causing errors
 
             //Trying to see if I can detect button clicks on the submit button
 
 
-            /*
-
             if(view!= null)
             {
+
                 SubmitButton = (Button)view;
 
                 SubmitButton.setOnClickListener(new View.OnClickListener() {
@@ -68,7 +68,7 @@ public class DecryptionPopup extends Activity
 
             }
 
-            */
+
         }
 
 

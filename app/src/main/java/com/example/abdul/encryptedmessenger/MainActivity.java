@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
                     //Now prompt the user for the key to use for decrypting the message
                     DecryptionPopup decryptionPopup = new DecryptionPopup();
                     startActivity(new Intent(MainActivity.this,DecryptionPopup.class));
-                    decryptionPopup.getKey( view);
+
 
                 }
 
