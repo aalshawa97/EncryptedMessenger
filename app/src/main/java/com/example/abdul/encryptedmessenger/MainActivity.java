@@ -209,9 +209,9 @@ public class MainActivity extends AppCompatActivity {
 
                 //Decrypt messages
 
-                        TextView message = (TextView)findViewById(R.id.message_text);
 
-                        StringBuilder decryptedMessage = new StringBuilder(message.toString());
+
+                        StringBuilder decryptedMessage = new StringBuilder(messageText.toString());
                         int ascii = 0;
 
                         for (int i = 0; i<decryptedMessage.length(); i++)
@@ -219,13 +219,13 @@ public class MainActivity extends AppCompatActivity {
 
                             decryptedMessage.setCharAt(i,toLowerCase(decryptedMessage.charAt(i)));
 
-                            ascii = ((((int)decryptedMessage.charAt(i) - 97 - valueKey.charAt(0) + 26) %26) + 97);
+                            ascii = ((((int)decryptedMessage.charAt(i) - 97 - (int) valueKey.charAt(0) + 26) %26) + 97);
                             decryptedMessage.setCharAt(i,(char)ascii);
 
 
                         }
 
-                        message.setText(decryptedMessage);
+                        messageText.setText(decryptedMessage);
 
                 messageUser.setText(model.getMessageUser());
                 messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)",model.getMessageTime()));
