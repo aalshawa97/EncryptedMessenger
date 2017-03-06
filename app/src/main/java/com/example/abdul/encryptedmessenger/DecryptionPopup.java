@@ -63,12 +63,13 @@ public class DecryptionPopup extends Activity
                         String valueKey = decryptionEditText.getText().toString();
 
 
-                        Log.d("Test: ", valueKey);
+                       //Log.d("Test: ", valueKey);
 
 
                         //Now decrypt the message for the user
                         MainActivity mainActivity = new MainActivity();
-                       //mainActivity.displayDecryptedChatMessage(valueKey);
+                        //Need to get this method to work for decryption
+                        //mainActivity.displayChatMessage(valueKey);
 
 
                     }

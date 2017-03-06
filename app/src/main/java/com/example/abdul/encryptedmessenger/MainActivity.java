@@ -80,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
             if(resultCode == RESULT_OK)
             {
                 Snackbar.make(activity_main,"Successfully signed in. Welcome ",Snackbar.LENGTH_SHORT).show();
-                displayChatMessage();
+                String aKey = null;
+                displayChatMessage(aKey);
             }
             else
             {
@@ -117,7 +118,8 @@ public class MainActivity extends AppCompatActivity {
         {
             Snackbar.make(activity_main,"Welcome "+FirebaseAuth.getInstance().getCurrentUser().getEmail(),Snackbar.LENGTH_SHORT).show();
             //Load content
-            displayChatMessage();
+            String aKey = null;
+            displayChatMessage(aKey);
         }
 
 
@@ -153,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void displayChatMessage()
+    public void displayChatMessage(final String aKey)
     {
         ListView listOfMessage = (ListView)findViewById(R.id.list_of_message);
         adapter = new FirebaseListAdapter<ChatMessage>(this,ChatMessage.class,R.layout.list_item,FirebaseDatabase.getInstance().getReference()) {
@@ -171,15 +173,33 @@ public class MainActivity extends AppCompatActivity {
                 StringBuilder tempMessageText = new StringBuilder(model.getMessageText());
                 int ascii = 0;
 
-                //Key for encryption
-                int key = 1;
-
-               for (int i = 0; i<tempMessageText.length(); i++)
+                if(aKey != null)
                 {
-                   tempMessageText.setCharAt(i,toUpperCase(tempMessageText.charAt(i)));
-                    ascii = ((((int)tempMessageText.charAt(i)-65 + key) %26) + 65);
-                    tempMessageText.setCharAt(i,(char)ascii);
+                    Log.d("Decryption Key Value: ", aKey);
+
+                    for (int i = 0; i<tempMessageText.length(); i++)
+                    {
+
+                        tempMessageText.setCharAt(i,toLowerCase(tempMessageText.charAt(i)));
+
+                        ascii = ((((int)tempMessageText.charAt(i) - 97 - (int) aKey.charAt(0) + 26) %26) + 97);
+                        tempMessageText.setCharAt(i,(char)ascii);
+
+                    }
                 }
+                else
+                {
+                    //Key for encryption
+                    int key = 1;
+
+                    for (int i = 0; i<tempMessageText.length(); i++)
+                    {
+                        tempMessageText.setCharAt(i,toUpperCase(tempMessageText.charAt(i)));
+                        ascii = ((((int)tempMessageText.charAt(i)-65 + key) %26) + 65);
+                        tempMessageText.setCharAt(i,(char)ascii);
+                    }
+                }
+
 
                 //messageText.setText(model.getMessageText());
                 messageText.setText(tempMessageText);
@@ -196,7 +216,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void displayDecryptedChatMessage(final String valueKey)
     {
-        ListView listOfMessage = (ListView)findViewById(R.id.list_of_message);
+
+        Log.d("Test: ", valueKey);
+
+        //This line of code will cause the code to crash
+        //ListView listOfMessage = (ListView)findViewById(R.id.list_of_message);
+        /*
+
         adapter = new FirebaseListAdapter<ChatMessage>(this,ChatMessage.class,R.layout.list_item,FirebaseDatabase.getInstance().getReference()) {
             @Override
             protected void populateView(View v, ChatMessage model, int position) {
@@ -223,10 +249,11 @@ public class MainActivity extends AppCompatActivity {
                             decryptedMessage.setCharAt(i,(char)ascii);
 
 
+
                         }
 
-                        messageText.setText(decryptedMessage);
-                //Log.d("Test: ", decryptedMessage.toString());
+                messageText.setText(decryptedMessage);
+                Log.d("Done: ", decryptedMessage.toString());
 
                 messageUser.setText(model.getMessageUser());
                 messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)",model.getMessageTime()));
@@ -236,6 +263,7 @@ public class MainActivity extends AppCompatActivity {
         };
 
         listOfMessage.setAdapter(adapter);
+    */
     }
 
 
