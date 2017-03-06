@@ -226,6 +226,7 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                         messageText.setText(decryptedMessage);
+                //Log.d("Test: ", decryptedMessage.toString());
 
                 messageUser.setText(model.getMessageUser());
                 messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)",model.getMessageTime()));

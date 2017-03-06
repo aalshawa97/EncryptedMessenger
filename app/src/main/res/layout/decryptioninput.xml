@@ -5,7 +5,6 @@
 
     <EditText
         android:text="Enter in the decryption key here..."
-        android:onClick="getKey"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="191dp"
