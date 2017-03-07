@@ -173,22 +173,6 @@ public class MainActivity extends AppCompatActivity {
                 StringBuilder tempMessageText = new StringBuilder(model.getMessageText());
                 int ascii = 0;
 
-                if(aKey != null)
-                {
-                    Log.d("Decryption Key Value: ", aKey);
-
-                    for (int i = 0; i<tempMessageText.length(); i++)
-                    {
-
-                        tempMessageText.setCharAt(i,toLowerCase(tempMessageText.charAt(i)));
-
-                        ascii = ((((int)tempMessageText.charAt(i) - 97 - (int) aKey.charAt(0) + 26) %26) + 97);
-                        tempMessageText.setCharAt(i,(char)ascii);
-
-                    }
-                }
-                else
-                {
                     //Key for encryption
                     int key = 1;
 
@@ -198,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
                         ascii = ((((int)tempMessageText.charAt(i)-65 + key) %26) + 65);
                         tempMessageText.setCharAt(i,(char)ascii);
                     }
-                }
+
 
 
                 //messageText.setText(model.getMessageText());
@@ -216,54 +200,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void displayDecryptedChatMessage(final String valueKey)
     {
+        Log.d("Key: ", valueKey);
 
-        Log.d("Test: ", valueKey);
+        //Update the message with the decrypted text
 
-        //This line of code will cause the code to crash
-        //ListView listOfMessage = (ListView)findViewById(R.id.list_of_message);
-        /*
-
-        adapter = new FirebaseListAdapter<ChatMessage>(this,ChatMessage.class,R.layout.list_item,FirebaseDatabase.getInstance().getReference()) {
-            @Override
-            protected void populateView(View v, ChatMessage model, int position) {
-                //Get references to the views of list_item.xml
-                TextView messageText,messageUser,messageTime;
-                messageText = (TextView) v.findViewById(R.id.message_text);
-                messageUser = (TextView) v.findViewById(R.id.message_user);
-                messageTime = (TextView) v.findViewById(R.id.message_time);
-
-
-                //Decrypt messages
-
-
-
-                        StringBuilder decryptedMessage = new StringBuilder(messageText.toString());
-                        int ascii = 0;
-
-                        for (int i = 0; i<decryptedMessage.length(); i++)
-                        {
-
-                            decryptedMessage.setCharAt(i,toLowerCase(decryptedMessage.charAt(i)));
-
-                            ascii = ((((int)decryptedMessage.charAt(i) - 97 - (int) valueKey.charAt(0) + 26) %26) + 97);
-                            decryptedMessage.setCharAt(i,(char)ascii);
-
-
-
-                        }
-
-                messageText.setText(decryptedMessage);
-                Log.d("Done: ", decryptedMessage.toString());
-
-                messageUser.setText(model.getMessageUser());
-                messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)",model.getMessageTime()));
-
-
-            }
-        };
-
-        listOfMessage.setAdapter(adapter);
-    */
     }
 
 
