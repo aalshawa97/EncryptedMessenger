@@ -21,7 +21,10 @@ import android.widget.TextView;
 import android.support.v7.app.ActionBarActivity;
 import android.widget.Toast;
 
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -38,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseListAdapter<ChatMessage> adapter;
     //Get reference to the database
     private Firebase firebase = new Firebase("https://encryptedmessanger.firebaseio.com/");
+
 
     RelativeLayout activity_main;
     FloatingActionButton fab;
@@ -204,12 +208,34 @@ public class MainActivity extends AppCompatActivity {
 
     public void displayDecryptedChatMessage(final String valueKey)
     {
+        //Trying new method for decryption
+        /*
+        TextView messageText,messageUser,messageTime;
+        View v = new View(this);
+        messageText = (TextView) v.findViewById(R.id.message_text);
+
         Log.d("Key: ", valueKey);
 
+        //Decrypt the message
+        firebase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                String data = dataSnapshot.getValue(String.class);
+
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        */
 
 
 
-        //
+        //Decrypt Message
+
         // ListView listOfMessage = (ListView)findViewById(R.id.list_of_message);
 
         
