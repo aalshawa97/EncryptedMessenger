@@ -136,12 +136,12 @@ public class RSAencryption extends Activity
 
     long ConvertToPrime(long  aPrime, long  upperBound, long  lowerBound)
     {
-        /*
-        bool prime = true;
+
+        Boolean prime = true;
 
         //This block of code generates a prime number between lowerbound and upperbound
 
-        for (int i = lowerBound; i<upperBound; i++)
+        for (long i = lowerBound; i<upperBound; i++)
         {
             prime = true;
             for (int j = 2; j*j <= i; j++)
@@ -160,8 +160,6 @@ public class RSAencryption extends Activity
 
         }
 
-        return;
-        */
         return 0;
     }
 
