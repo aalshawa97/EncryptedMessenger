@@ -81,17 +81,21 @@ public class RSAencryption extends Activity
 
         lambdaN = (p-1)*(q-1);
 
-        Log.d("lambdaN: ", "" + lambdaN);
-        /*
+        Log.d("lambdaN: ", "" + lambdaN );
+
 
         //cout << "Lowest common multiple of p-1 and q-1: " << lambdaN << endl<<endl;
 
         //e is used as the public key exponent
         //Choose an integer e such that 1 < e < lambdaN and gcd(e, lambdaN) = 1; i.e., e and lambdaN are coprime.
-        ConvertToPrime(e,lambdaN,7);
+        //ConvertToPrime(e,lambdaN,7);
 
-        //Delete this line, this is for testing purposes
-        //e = 5;
+        //This is a valid value for e to be
+        e = 5;
+
+        Log.d("e: ", "" + e);
+
+        /*
 
         //cout << "e: " << e << endl << endl;
 
