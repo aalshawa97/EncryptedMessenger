@@ -209,9 +209,10 @@ public class MainActivity extends AppCompatActivity {
     public void displayDecryptedChatMessage(final String valueKey)
     {
         //Trying new method for decryption
+
         /*
-        TextView messageText,messageUser,messageTime;
-        View v = new View(this);
+        final TextView messageText,messageUser,messageTime;
+        View v = new View(null);
         messageText = (TextView) v.findViewById(R.id.message_text);
 
         Log.d("Key: ", valueKey);
@@ -222,6 +223,7 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 String data = dataSnapshot.getValue(String.class);
+                messageText.setText("cool");
 
             }
 
@@ -230,8 +232,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        */
 
+        */
 
 
         //Decrypt Message
