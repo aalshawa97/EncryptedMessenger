@@ -21,10 +21,7 @@ import android.widget.TextView;
 import android.support.v7.app.ActionBarActivity;
 import android.widget.Toast;
 
-import com.firebase.client.DataSnapshot;
-import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
+
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -40,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private static int SIGN_IN_REQUEST_CODE = 1;
     private FirebaseListAdapter<ChatMessage> adapter;
     //Get reference to the database
-    private Firebase firebase = new Firebase("https://encryptedmessanger.firebaseio.com/");
+    //private Firebase firebase = new Firebase("https://encryptedmessanger.firebaseio.com/");
 
 
     RelativeLayout activity_main;
@@ -176,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
                 messageTime = (TextView) v.findViewById(R.id.message_time);
 
 
-                //Encrypt messages
+                //Encrypt messages with caesar
 
                 StringBuilder tempMessageText = new StringBuilder(model.getMessageText());
                 int ascii = 0;
@@ -191,6 +188,7 @@ public class MainActivity extends AppCompatActivity {
                         tempMessageText.setCharAt(i,(char)ascii);
                     }
 
+                //Encrypt messages with RSA
 
 
                 //messageText.setText(model.getMessageText());
@@ -212,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
 
         /*
         final TextView messageText,messageUser,messageTime;
-        View v = new View(null);
+        View v = new View(getApplicationContext());
         messageText = (TextView) v.findViewById(R.id.message_text);
 
         Log.d("Key: ", valueKey);
@@ -232,8 +230,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
         */
+
 
 
         //Decrypt Message
