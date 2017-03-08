@@ -24,9 +24,10 @@ public class RSAencryption extends Activity
 
     }
 
+    //Need to convert this C++ code to useable Java code
+
     long KeyGeneration()
     {
-        //Need to convert this C++ code to useable Java code
         /*
 
         	//We need to generate 3 sets of RSA keys
@@ -84,4 +85,146 @@ public class RSAencryption extends Activity
          */
         return 0;
     }
+
+    /*
+    void PrimeGenerator(long long int & aPrime,long long int upperBound, long long int lowerBound)
+{
+	bool prime = true;
+
+	long long int randNum = 0;
+
+	//Initialize the random seed
+	srand(time(NULL));
+
+	//Generate a random number between lowerBound and upperBound
+	randNum = rand() % upperBound + lowerBound;
+
+
+	//This block of code generates a prime number between 10000+randNum and 11000
+
+		for (int i = 10000+randNum; i<11000; i++)
+		{
+			prime = true;
+			for (int j = 2; j*j <= i; j++)
+			{
+				if (i % j == 0)
+				{
+					prime = false;
+					break;
+				}
+			}
+			if (prime)
+			{
+				aPrime = i;
+				return;
+			}
+
+		}
+
+		return;
+}
+
+void ConvertToPrime(long long int & aPrime, long long int upperBound, long long int lowerBound)
+{
+	bool prime = true;
+
+	//This block of code generates a prime number between lowerbound and upperbound
+
+	for (int i = lowerBound; i<upperBound; i++)
+	{
+		prime = true;
+		for (int j = 2; j*j <= i; j++)
+		{
+			if (i % j == 0)
+			{
+				prime = false;
+				break;
+			}
+		}
+		if (prime)
+		{
+			aPrime = i;
+			break;
+		}
+
+	}
+
+	return;
+}
+
+
+void LCM(long long int p, long long int q,long long int &lambdaN)
+{
+	long long int m = 0;
+	long long int n = 0;
+
+	m = p;
+	n = q;
+
+	while (m != n)
+	{
+		if (m < n)
+		{
+			m = m + p;
+		}
+		else
+		{
+			n = n + q;
+		}
+	}
+
+	lambdaN = m;
+
+	return;
+}
+
+void ExtendedEuclidean(long long int lambdaN, long long int e, long long int & x, long long int & d)
+{
+	//We need to figure out what will d be, d = y
+
+	long long int tempLambdaN = lambdaN;
+
+	long long int q, lastX, lastY, temp0, temp1, temp2, temp3;
+
+	if (e>lambdaN)
+	{
+		//we swap them
+		temp0 = lambdaN; lambdaN = e; e = temp0;
+	}
+
+	x = 0;
+	d = 1;
+	lastX = 1;
+	lastY = 0;
+
+	while (e != 0)
+	{
+		q = lambdaN / e;
+		temp1 = lambdaN%e;
+		lambdaN = e;
+		e = temp1;
+
+		temp2 = x;
+		x = lastX - q*x;
+		lastX = temp2;
+
+		temp3 = d;
+		d = lastY - q*d;
+		lastY = temp3;
+	}
+
+
+    x = lastX;
+    d = lastY;
+
+	if (d < 0)
+    {
+        d = tempLambdaN + d;
+    }
+
+
+	return;
+}
+
+     */
 }
