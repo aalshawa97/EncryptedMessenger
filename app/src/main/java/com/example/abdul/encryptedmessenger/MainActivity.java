@@ -191,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
                 //Encrypt messages with RSA
                 /*
 
-                
+
                  */
 
 
@@ -207,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void displayDecryptedChatMessage(final String valueKey)
+    public void displayDecryptedChatMessage( String valueKey)
     {
         //Trying new method for decryption
 
