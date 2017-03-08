@@ -73,13 +73,16 @@ public class RSAencryption extends Activity
 
         Log.d("n: ", "" + n);
 
-        /*
+
 
         //cout << "n: " << n << endl << endl;
 
         //Compute LCM(p-1,q-1)
 
         lambdaN = (p-1)*(q-1);
+
+        Log.d("lambdaN: ", "" + lambdaN);
+        /*
 
         //cout << "Lowest common multiple of p-1 and q-1: " << lambdaN << endl<<endl;
 
