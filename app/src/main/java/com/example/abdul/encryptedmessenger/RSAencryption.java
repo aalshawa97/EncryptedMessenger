@@ -86,102 +86,111 @@ public class RSAencryption extends Activity
         return 0;
     }
 
-    /*
-    void PrimeGenerator(long long int & aPrime,long long int upperBound, long long int lowerBound)
-{
-	bool prime = true;
+    long PrimeGenerator(long  aPrime,long  upperBound, long  lowerBound)
+    {
+        /*
+        bool prime = true;
 
 	long long int randNum = 0;
 
-	//Initialize the random seed
-	srand(time(NULL));
+        //Initialize the random seed
+        srand(time(NULL));
 
-	//Generate a random number between lowerBound and upperBound
-	randNum = rand() % upperBound + lowerBound;
-
-
-	//This block of code generates a prime number between 10000+randNum and 11000
-
-		for (int i = 10000+randNum; i<11000; i++)
-		{
-			prime = true;
-			for (int j = 2; j*j <= i; j++)
-			{
-				if (i % j == 0)
-				{
-					prime = false;
-					break;
-				}
-			}
-			if (prime)
-			{
-				aPrime = i;
-				return;
-			}
-
-		}
-
-		return;
-}
-
-void ConvertToPrime(long long int & aPrime, long long int upperBound, long long int lowerBound)
-{
-	bool prime = true;
-
-	//This block of code generates a prime number between lowerbound and upperbound
-
-	for (int i = lowerBound; i<upperBound; i++)
-	{
-		prime = true;
-		for (int j = 2; j*j <= i; j++)
-		{
-			if (i % j == 0)
-			{
-				prime = false;
-				break;
-			}
-		}
-		if (prime)
-		{
-			aPrime = i;
-			break;
-		}
-
-	}
-
-	return;
-}
+        //Generate a random number between lowerBound and upperBound
+        randNum = rand() % upperBound + lowerBound;
 
 
-void LCM(long long int p, long long int q,long long int &lambdaN)
-{
+        //This block of code generates a prime number between 10000+randNum and 11000
+
+        for (int i = 10000+randNum; i<11000; i++)
+        {
+            prime = true;
+            for (int j = 2; j*j <= i; j++)
+            {
+                if (i % j == 0)
+                {
+                    prime = false;
+                    break;
+                }
+            }
+            if (prime)
+            {
+                aPrime = i;
+                return;
+            }
+
+        }
+
+        return;
+        */
+        return 0;
+    }
+
+    long ConvertToPrime(long  aPrime, long  upperBound, long  lowerBound)
+    {
+        /*
+        bool prime = true;
+
+        //This block of code generates a prime number between lowerbound and upperbound
+
+        for (int i = lowerBound; i<upperBound; i++)
+        {
+            prime = true;
+            for (int j = 2; j*j <= i; j++)
+            {
+                if (i % j == 0)
+                {
+                    prime = false;
+                    break;
+                }
+            }
+            if (prime)
+            {
+                aPrime = i;
+                break;
+            }
+
+        }
+
+        return;
+        */
+        return 0;
+    }
+
+    long LCM(long  p, long q,long lambdaN)
+    {
+        /*
 	long long int m = 0;
 	long long int n = 0;
 
-	m = p;
-	n = q;
+        m = p;
+        n = q;
 
-	while (m != n)
-	{
-		if (m < n)
-		{
-			m = m + p;
-		}
-		else
-		{
-			n = n + q;
-		}
-	}
+        while (m != n)
+        {
+            if (m < n)
+            {
+                m = m + p;
+            }
+            else
+            {
+                n = n + q;
+            }
+        }
 
-	lambdaN = m;
+        lambdaN = m;
 
-	return;
-}
+        return;
+        */
+        return 0;
+    }
 
-void ExtendedEuclidean(long long int lambdaN, long long int e, long long int & x, long long int & d)
+
+
+long ExtendedEuclidean(long lambdaN, long e, long  x, long  d)
 {
 	//We need to figure out what will d be, d = y
-
+    /*
 	long long int tempLambdaN = lambdaN;
 
 	long long int q, lastX, lastY, temp0, temp1, temp2, temp3;
@@ -224,7 +233,10 @@ void ExtendedEuclidean(long long int lambdaN, long long int e, long long int & x
 
 
 	return;
+    */
+
+    return 0;
 }
 
-     */
+
 }
