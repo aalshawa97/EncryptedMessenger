@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.support.v7.app.ActionBarActivity;
 import android.widget.Toast;
 
+import com.firebase.client.Firebase;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -35,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
     private static int SIGN_IN_REQUEST_CODE = 1;
     private FirebaseListAdapter<ChatMessage> adapter;
+    //Get reference to the database
+    private Firebase firebase = new Firebase("https://encryptedmessanger.firebaseio.com/");
+
     RelativeLayout activity_main;
     FloatingActionButton fab;
     Button DecryptButton;
@@ -202,7 +206,45 @@ public class MainActivity extends AppCompatActivity {
     {
         Log.d("Key: ", valueKey);
 
+
+
+
+        //
+        // ListView listOfMessage = (ListView)findViewById(R.id.list_of_message);
+
+        
+
+        /*
+        adapter = new FirebaseListAdapter<ChatMessage>(this, ChatMessage.class, R.layout.list_item, FirebaseDatabase.getInstance().getReference()) {
+            @Override
+            protected void populateView(View v, ChatMessage model, int position) {
+
+                adapter.getRef(0).child("-KeVKcb1pqDchA75i-Jd").setValue("I can update this");
+
+            }
+        };
+        */
+
         //Update the message with the decrypted text
+
+                //Decrypt messages
+                /*
+                        StringBuilder decryptedMessage = new StringBuilder(messageText.toString());
+                        int ascii = 0;
+
+                        for (int i = 0; i<decryptedMessage.length(); i++)
+                        {
+
+                            decryptedMessage.setCharAt(i,toLowerCase(decryptedMessage.charAt(i)));
+
+                            ascii = ((((int)decryptedMessage.charAt(i) - 97 - (int) valueKey.charAt(0) + 26) %26) + 97);
+                            decryptedMessage.setCharAt(i,(char)ascii);
+
+
+
+                        }
+                        */
+
 
     }
 
