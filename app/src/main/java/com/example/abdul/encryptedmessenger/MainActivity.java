@@ -189,9 +189,12 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 //Encrypt messages with RSA
+                /*
+
+                
+                 */
 
 
-                //messageText.setText(model.getMessageText());
                 messageText.setText(tempMessageText);
                 messageUser.setText(model.getMessageUser());
                 messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)",model.getMessageTime()));
