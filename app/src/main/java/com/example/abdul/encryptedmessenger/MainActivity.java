@@ -162,6 +162,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void displayChatMessage(final String aKey)
     {
+
         ListView listOfMessage = (ListView)findViewById(R.id.list_of_message);
         adapter = new FirebaseListAdapter<ChatMessage>(this,ChatMessage.class,R.layout.list_item,FirebaseDatabase.getInstance().getReference()) {
             @Override

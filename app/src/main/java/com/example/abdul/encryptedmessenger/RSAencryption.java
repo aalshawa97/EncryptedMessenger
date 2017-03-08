@@ -26,7 +26,7 @@ public class RSAencryption extends Activity
 
     //Need to convert this C++ code to useable Java code
 
-    long KeyGeneration(long n, long e, long d)
+    long KeyGeneration()
     {
         //We need to generate 3 sets of RSA keys
 
@@ -36,6 +36,9 @@ public class RSAencryption extends Activity
         long  p = 0;
         long  q = 0;
         long  lambdaN = 0;
+        long n = 0;
+        long e = 0;
+        long d = 0;
 
         PrimeGenerator(p,100,51);
 
@@ -43,6 +46,7 @@ public class RSAencryption extends Activity
         //p = 7;
 
         //cout << "p: " << p << endl << endl;
+        Log.d("p: ", " "+p);
 
         PrimeGenerator(q,50,0);
 
