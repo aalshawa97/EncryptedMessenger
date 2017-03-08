@@ -165,30 +165,27 @@ public class RSAencryption extends Activity
 
     long LCM(long  p, long q,long lambdaN)
     {
-        /*
-	long long int m = 0;
-	long long int n = 0;
+        long m = 0;
+        long n = 0;
 
-        m = p;
-        n = q;
+            m = p;
+            n = q;
 
-        while (m != n)
-        {
-            if (m < n)
+            while (m != n)
             {
-                m = m + p;
+                if (m < n)
+                {
+                    m = m + p;
+                }
+                else
+                {
+                    n = n + q;
+                }
             }
-            else
-            {
-                n = n + q;
-            }
-        }
 
-        lambdaN = m;
+            lambdaN = m;
 
-        return;
-        */
-        return 0;
+            return 0;
     }
 
 
@@ -196,10 +193,10 @@ public class RSAencryption extends Activity
 long ExtendedEuclidean(long lambdaN, long e, long  x, long  d)
 {
 	//We need to figure out what will d be, d = y
-    /*
-	long long int tempLambdaN = lambdaN;
 
-	long long int q, lastX, lastY, temp0, temp1, temp2, temp3;
+	long tempLambdaN = lambdaN;
+
+	long  q, lastX, lastY, temp0, temp1, temp2, temp3;
 
 	if (e>lambdaN)
 	{
@@ -236,10 +233,6 @@ long ExtendedEuclidean(long lambdaN, long e, long  x, long  d)
     {
         d = tempLambdaN + d;
     }
-
-
-	return;
-    */
 
     return 0;
 }
