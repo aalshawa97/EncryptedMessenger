@@ -2,6 +2,7 @@ package com.example.abdul.encryptedmessenger;
 
 import android.app.Activity;
 import android.util.Log;
+import java.util.Random;
 
 /**
  * Created by abdul on 3/8/2017.
@@ -28,6 +29,8 @@ public class RSAencryption extends Activity
 
     long KeyGeneration()
     {
+        Log.d("RSA Key Generation:", "");
+
         //We need to generate 3 sets of RSA keys
 
         //p,q and, lamdaN must be kept secret
@@ -46,7 +49,9 @@ public class RSAencryption extends Activity
         //p = 7;
 
         //cout << "p: " << p << endl << endl;
-        Log.d("p: ", " "+p);
+
+        //Prints the value of p
+        Log.d("p: ", "" + p);
 
         PrimeGenerator(q,50,0);
 
@@ -55,6 +60,9 @@ public class RSAencryption extends Activity
 
 
         //cout << "q: " << q << endl << endl;
+
+        //Prints the value of q
+        Log.d("q: ", "" + q);
 
         //Compute n
         //n is used as the modulus for both the public and private keys. Its length, usually expressed in bits, is the key length.
@@ -90,21 +98,21 @@ public class RSAencryption extends Activity
 
     long PrimeGenerator(long  aPrime,long  upperBound, long  lowerBound)
     {
-        /*
-        bool prime = true;
 
-	long long int randNum = 0;
+        Boolean prime = true;
 
-        //Initialize the random seed
-        srand(time(NULL));
+    	long  randNum = 0;
+
+        //Generate a new random number
+        Random rand = new Random();
 
         //Generate a random number between lowerBound and upperBound
-        randNum = rand() % upperBound + lowerBound;
+        randNum = rand.nextInt((int)upperBound)+lowerBound;
 
 
         //This block of code generates a prime number between 10000+randNum and 11000
 
-        for (int i = 10000+randNum; i<11000; i++)
+        for (long i = 10000+randNum; i<11000; i++)
         {
             prime = true;
             for (int j = 2; j*j <= i; j++)
@@ -118,13 +126,11 @@ public class RSAencryption extends Activity
             if (prime)
             {
                 aPrime = i;
-                return;
+                return 0;
             }
 
         }
 
-        return;
-        */
         return 0;
     }
 
