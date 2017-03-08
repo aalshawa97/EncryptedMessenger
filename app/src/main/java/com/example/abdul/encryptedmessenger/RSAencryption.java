@@ -43,7 +43,7 @@ public class RSAencryption extends Activity
         long e = 0;
         long d = 0;
 
-        PrimeGenerator(p,100,51);
+        p = PrimeGenerator(p,100,51);
 
         //Delete this line, this is for testing purposes
         //p = 7;
@@ -53,7 +53,9 @@ public class RSAencryption extends Activity
         //Prints the value of p
         Log.d("p: ", "" + p);
 
-        PrimeGenerator(q,50,0);
+
+
+        q = PrimeGenerator(q,50,0);
 
         //Delete this line, this is for testing purposes
         //q = 3;
@@ -64,9 +66,14 @@ public class RSAencryption extends Activity
         //Prints the value of q
         Log.d("q: ", "" + q);
 
+
         //Compute n
         //n is used as the modulus for both the public and private keys. Its length, usually expressed in bits, is the key length.
         n = p * q;
+
+        Log.d("n: ", "" + n);
+
+        /*
 
         //cout << "n: " << n << endl << endl;
 
@@ -92,6 +99,7 @@ public class RSAencryption extends Activity
         ExtendedEuclidean(lambdaN, e, x, d);
 
         //cout << "d: " << d << endl << endl;
+        */
 
         return 0;
     }
@@ -126,12 +134,12 @@ public class RSAencryption extends Activity
             if (prime)
             {
                 aPrime = i;
-                return 0;
+                return aPrime;
             }
 
         }
 
-        return 0;
+        return aPrime;
     }
 
     long ConvertToPrime(long  aPrime, long  upperBound, long  lowerBound)

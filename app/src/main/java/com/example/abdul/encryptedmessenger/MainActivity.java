@@ -190,6 +190,8 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 //Encrypt messages with RSA
+                RSAencryption rsAencryption = new RSAencryption();
+                rsAencryption.KeyGeneration();
                 /*
 
 
