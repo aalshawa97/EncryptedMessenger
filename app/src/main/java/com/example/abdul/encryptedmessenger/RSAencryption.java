@@ -23,4 +23,9 @@ public class RSAencryption extends Activity
 
 
     }
+
+    long KeyGeneration()
+    {
+        return 0;
+    }
 }
