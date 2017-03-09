@@ -95,7 +95,7 @@ public class RSAencryption extends Activity
 
         Log.d("e: ", "" + e);
 
-        /*
+
 
         //cout << "e: " << e << endl << endl;
 
@@ -103,10 +103,12 @@ public class RSAencryption extends Activity
 
         long  x = 0;
 
-        ExtendedEuclidean(lambdaN, e, x, d);
+        d = ExtendedEuclidean(lambdaN, e, x, d);
 
         //cout << "d: " << d << endl << endl;
-        */
+
+        Log.d("d: ", "" + d);
+
 
         return 0;
     }
@@ -249,7 +251,7 @@ long ExtendedEuclidean(long lambdaN, long e, long  x, long  d)
         d = tempLambdaN + d;
     }
 
-    return 0;
+    return d;
 }
 
 
