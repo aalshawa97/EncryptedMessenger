@@ -173,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
                 messageUser = (TextView) v.findViewById(R.id.message_user);
                 messageTime = (TextView) v.findViewById(R.id.message_time);
 
-
+                /*
                 //Encrypt messages with caesar
 
                 StringBuilder tempMessageText = new StringBuilder(model.getMessageText());
@@ -188,17 +188,21 @@ public class MainActivity extends AppCompatActivity {
                         ascii = ((((int)tempMessageText.charAt(i)-65 + key) %26) + 65);
                         tempMessageText.setCharAt(i,(char)ascii);
                     }
+                */
+                //long plainText = Long.parseLong(messageText.toString());
+
+                //For testing I am hardcoding the value
+                long plainText = 100;
 
                 //Encrypt messages with RSA
                 RSAencryption rsAencryption = new RSAencryption();
-                rsAencryption.KeyGeneration();
-                /*
+                plainText = rsAencryption.KeyGeneration(plainText);
 
+                //Final message is encrypted with RSA
+                Log.d("RSA Encryption Result", Long.toString(plainText));
 
-                 */
-
-
-                messageText.setText(tempMessageText);
+                //messageText.setText(Long.toString(plainText));
+                messageText.setText(model.getMessageText());
                 messageUser.setText(model.getMessageUser());
                 messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)",model.getMessageTime()));
 
