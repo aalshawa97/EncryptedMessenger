@@ -191,23 +191,23 @@ public class MainActivity extends AppCompatActivity {
                 */
 
                 //Here is where I am trying to convert a message to a number so that I can encrypt it with my RSA functions
-                 //long plainText =  Long.parseLong(messageText.getText().toString());
 
+                 long plainText = 100;
 
-                //For testing I am hardcoding the value
-                long plainText = 100;
+                //Get the plaintext from the textview
+                StringBuilder tempPlainText = new StringBuilder(model.getMessageText());
 
-                Log.d("Encrypting plaintext: ", ""+plainText);
+                plainText = Long.parseLong(tempPlainText.toString());
+
+                Log.d("Encrypting plaintext: ", String.valueOf(plainText));
+
 
                 //Encrypt messages with RSA
                 RSAencryption rsAencryption = new RSAencryption();
                 plainText = rsAencryption.KeyGeneration(plainText);
+                
 
-                //Final message is encrypted with RSA
-                Log.d("RSA Encryption Result", Long.toString(plainText));
-
-                //messageText.setText(Long.toString(plainText));
-                messageText.setText("" + plainText);
+                messageText.setText(String.valueOf(plainText));
                 messageUser.setText(model.getMessageUser());
                 messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)",model.getMessageTime()));
 
