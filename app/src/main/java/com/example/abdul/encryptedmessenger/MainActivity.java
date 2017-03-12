@@ -173,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
                 messageUser = (TextView) v.findViewById(R.id.message_user);
                 messageTime = (TextView) v.findViewById(R.id.message_time);
 
-
+                /*
                 //Encrypt messages with caesar
 
                 StringBuilder tempMessageText = new StringBuilder(model.getMessageText());
@@ -188,17 +188,26 @@ public class MainActivity extends AppCompatActivity {
                         ascii = ((((int)tempMessageText.charAt(i)-65 + key) %26) + 65);
                         tempMessageText.setCharAt(i,(char)ascii);
                     }
+                */
+
+                //Here is where I am trying to convert a message to a number so that I can encrypt it with my RSA functions
+
+                 long plainText = 100;
+
+                //Get the plaintext from the textview
+                StringBuilder tempPlainText = new StringBuilder(model.getMessageText());
+
+                plainText = Long.parseLong(tempPlainText.toString());
+
+                Log.d("Encrypting plaintext: ", String.valueOf(plainText));
+
 
                 //Encrypt messages with RSA
                 RSAencryption rsAencryption = new RSAencryption();
-                rsAencryption.KeyGeneration();
-                /*
+                plainText = rsAencryption.KeyGeneration(plainText);
+                
 
-
-                 */
-
-
-                messageText.setText(tempMessageText);
+                messageText.setText(String.valueOf(plainText));
                 messageUser.setText(model.getMessageUser());
                 messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)",model.getMessageTime()));
 

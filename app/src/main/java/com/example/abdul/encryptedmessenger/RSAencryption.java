@@ -19,6 +19,7 @@ public class RSAencryption extends Activity
             encryptedPlainText = ((encryptedPlainText * plainText) % n);
         }
 
+        Log.d("Encrypted Plaintext", "" + encryptedPlainText);
 
         return encryptedPlainText;
 
@@ -27,7 +28,7 @@ public class RSAencryption extends Activity
 
     //Need to convert this C++ code to useable Java code
 
-    long KeyGeneration()
+    long KeyGeneration(long plainText)
     {
         Log.d("RSA Key Generation:", "");
 
@@ -110,7 +111,9 @@ public class RSAencryption extends Activity
         Log.d("d: ", "" + d);
 
 
-        return 0;
+
+
+        return Encrypt(plainText,n,e);
     }
 
     long PrimeGenerator(long  aPrime,long  upperBound, long  lowerBound)
