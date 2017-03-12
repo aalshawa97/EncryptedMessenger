@@ -227,6 +227,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void displayDecryptedChatMessage( String valueKey)
     {
+        //Example of editing a value in the Firebase
         mDatabase.child("-Kf2j50AiX16sHpMFEV2").child("messageText").setValue(String.valueOf(0));
         mDatabase.child("-Kf2j50AiX16sHpMFEV2").child("messageUser").setValue("Example of me editing this value");
 
