@@ -27,6 +27,8 @@ import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+
 import com.google.firebase.database.FirebaseDatabase;
 
 import static java.lang.Character.toLowerCase;
@@ -36,7 +38,10 @@ public class MainActivity extends AppCompatActivity {
 
     private static int SIGN_IN_REQUEST_CODE = 1;
     private FirebaseListAdapter<ChatMessage> adapter;
+
     //Get reference to the database
+    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+
     //private Firebase firebase = new Firebase("https://encryptedmessanger.firebaseio.com/");
 
 
