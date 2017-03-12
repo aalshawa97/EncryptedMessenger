@@ -192,11 +192,6 @@ public class MainActivity extends AppCompatActivity {
                 //Encrypt messages with RSA
                 RSAencryption rsAencryption = new RSAencryption();
                 rsAencryption.KeyGeneration();
-                /*
-
-
-                 */
-
 
                 messageText.setText(tempMessageText);
                 messageUser.setText(model.getMessageUser());
@@ -240,11 +235,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        //Decrypt Message
+        //Trying different method for decryption
 
         // ListView listOfMessage = (ListView)findViewById(R.id.list_of_message);
-
-        
 
         /*
         adapter = new FirebaseListAdapter<ChatMessage>(this, ChatMessage.class, R.layout.list_item, FirebaseDatabase.getInstance().getReference()) {
@@ -256,26 +249,6 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         */
-
-        //Update the message with the decrypted text
-
-                //Decrypt messages
-                /*
-                        StringBuilder decryptedMessage = new StringBuilder(messageText.toString());
-                        int ascii = 0;
-
-                        for (int i = 0; i<decryptedMessage.length(); i++)
-                        {
-
-                            decryptedMessage.setCharAt(i,toLowerCase(decryptedMessage.charAt(i)));
-
-                            ascii = ((((int)decryptedMessage.charAt(i) - 97 - (int) valueKey.charAt(0) + 26) %26) + 97);
-                            decryptedMessage.setCharAt(i,(char)ascii);
-
-
-
-                        }
-                        */
 
 
     }
